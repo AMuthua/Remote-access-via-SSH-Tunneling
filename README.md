@@ -23,3 +23,77 @@
 - **Managed router port forwarding (NAT)** to selectively expose only the highly secured SSH service of the Ubuntu server to the internet.
     
 - **Implemented and optimized Uncomplicated Firewall (UFW)** rules on the Ubuntu Server to strictly control network access and enhance server security.
+
+### 4. Foundational Cybersecurity Principles
+
+- **Hardened SSH access** by migrating the default SSH port to a non-standard port number, effectively mitigating automated brute-force attacks and port scans.
+    
+- **Applied least-privilege principles** by requiring strong passwords for all remote access accounts (Ubuntu SSH and Windows RDP users).
+    
+- **Utilized `ping` and `Nmap`** for active host discovery and port state verification, crucial for network troubleshooting and security assessment.
+    
+
+---
+
+## Project Architecture
+
+The following diagram illustrates the secure remote access architecture:
+
+```
+[Your Windows 11 Laptop] <---- (Encrypted Traffic over Internet) ---->
+       |                                                                    ^
+       |                                                                    |
+       |-------------------SSH Tunnel to Ubuntu Server----------------------|
+                                        |
+                                        | (Home Public IP / Dynamic DNS)
+                                        V
+                                 [ISP Router (Home Gateway)]
+                                        |
+                                        | (Local Home Network - 192.168.xxx.0/24)
+                                        V
+                           [Ubuntu Server (e.g., 192.168.xxx.xxx)]
+                                        |
+                                        | (Internal Network Access / RDP over SSH Tunnel)
+                                        |----------------------------------------------|
+                                        V                                              V
+                           [Office Windows PC 1 (e.g., 192.168.xxx.xxx)]   [Office Windows PC 2 (e.g., 192.168.xxx.xxx)]
+                                       (RDP Port 3389 Open Locally)        (RDP Port 3389 Open Locally)
+```
+
+---
+
+## Technologies & Tools Utilized
+
+- **Operating Systems:** Ubuntu Server (Linux), Windows 11, Windows 10
+    
+- **Network Protocols:** SSH (Secure Shell), SFTP (SSH File Transfer Protocol), RDP (Remote Desktop Protocol), TCP/IP, ICMP
+    
+- **Networking Tools:** Nmap (Network Mapper), `ipconfig`, `ping`, Router Administration Interface (Port Forwarding, DDNS)
+    
+- **Linux Utilities:** UFW (Uncomplicated Firewall), `ssh` (client & server), Command Line Interface (CLI)
+    
+- **Windows Utilities:** Remote Desktop Connection Client (MSTSC), PowerShell / Command Prompt, Windows Defender Firewall
+    
+- **File Transfer Clients:** WinSCP (for SFTP to Ubuntu server)
+    
+- **Documentation:** Markdown
+    
+
+---
+
+## Learnings & Key Takeaways
+
+This project provided invaluable hands-on experience in:
+
+- **Practical network design and implementation** for secure remote accessibility in a mixed-OS environment.
+    
+- **Implementing multi-layered security measures**, including SSH tunneling, firewall management, and port obfuscation, to protect internal network resources.
+    
+- **Diagnosing and troubleshooting complex network connectivity issues**, effectively utilizing tools like `Nmap` and `ping` for detailed reconnaissance.
+    
+- **Understanding the interplay** between local network security policies and external access requirements.
+    
+- **Developing an iterative approach** to project development, adapting configurations based on testing and troubleshooting results.
+
+
+<!-- Authored by [Alexander M. Muthua] -->
