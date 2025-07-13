@@ -96,4 +96,4 @@ This project provided invaluable hands-on experience in:
 - **Developing an iterative approach** to project development, adapting configurations based on testing and troubleshooting results.
 
 
-<!-- Authored by [Alexander M. Muthua] -->
+Authored by Alexander M. Muthua
