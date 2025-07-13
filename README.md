@@ -40,7 +40,7 @@
 The following diagram illustrates the secure remote access architecture:
 
 ```
-[Your Windows 11 Laptop] <---- (Encrypted Traffic over Internet) ---->
+[Your Windows Operating System Machine] <---- (Encrypted Traffic over Internet) ---->
        |                                                                    ^
        |                                                                    |
        |-------------------SSH Tunnel to Ubuntu Server----------------------|
